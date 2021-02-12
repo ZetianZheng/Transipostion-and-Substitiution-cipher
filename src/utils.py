@@ -1,6 +1,8 @@
 """utils"""
 import pandas as pd
 
+DATAPATH = '../data/challenge-2-ct.txt'
+DATAPATH2 = '../data/c2-decrypt-1.txt' # the dectypted data from step 1
 
 def read_file_from(path):
     """"read file"""
@@ -16,6 +18,7 @@ def read_file_from(path):
     return ret
 
 def write_data_to(path, content):
+    """"write file after substituion"""
     with open(path, 'w') as f:
         f.write(content)
 

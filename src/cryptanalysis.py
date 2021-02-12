@@ -4,7 +4,7 @@ from utils import *
 MOSTALPHA = ['e', 't', 'a', 'o', 'i', 'n', 's', 'h', 'r', 'd', 'l',
                   'c', 'u', 'm', 'w', 'f', 'g', 'y', 'p', 'b', 'v', 'k',
                   'j', 'x', 'q', 'z']
-DATAPATH = '../data/challenge-2-ct.txt'
+
 ANSPATH = '../data/results.csv'
 
 def number_statistics (_encrypted_data):
