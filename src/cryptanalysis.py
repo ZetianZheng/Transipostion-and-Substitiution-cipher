@@ -5,15 +5,7 @@ MOSTALPHA = ['e', 't', 'a', 'o', 'i', 'n', 's', 'h', 'r', 'd', 'l',
                   'c', 'u', 'm', 'w', 'f', 'g', 'y', 'p', 'b', 'v', 'k',
                   'j', 'x', 'q', 'z']
 DATAPATH = '../data/challenge-2-ct.txt'
-
-def statistics_analysis(_dict_chars, _count):
-    """statistics_analysis"""
-    sorted_chars = dict(sorted(_dict_chars.items(), key = lambda item:item[1], reverse = True))
-
-    chars = list(sorted_chars.keys())
-    numbers =  list(sorted_chars.values())
-    frequencies = list(map(lambda x: x/_count, numbers))
-    return chars, numbers, frequencies
+ANSPATH = '../data/results.csv'
 
 def number_statistics (_encrypted_data):
     """count each character, return number of chars and frequency dict"""
@@ -44,7 +36,7 @@ def main():
     encrypted_data = read_file_from(DATAPATH)
     count, dict_chars = number_statistics(encrypted_data)
     chars, numbers, frequencies = statistics_analysis(dict_chars, count)
-    write_to_csv(chars, numbers, frequencies)
+    write_to_csv(chars, numbers, frequencies, ANSPATH)
     ### arbitary_mapping
     arbitary_mapping(encrypted_data, chars)
 
