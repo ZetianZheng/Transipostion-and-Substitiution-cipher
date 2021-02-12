@@ -15,7 +15,7 @@ def number_statistics (_encrypted_data):
         if i in dict_char:
             dict_char[i] += 1
         else:
-            dict_char[i] = 0
+            dict_char[i] = 1
         count += 1
 
     return count, dict_char

@@ -17,7 +17,7 @@ def number_2_statistics(_encrypted_data):
         if temp_str in dict_char:
             dict_char[temp_str] += 1
         else:
-            dict_char[temp_str] = 0
+            dict_char[temp_str] = 1
         temp_list = []
         count += 1
     return count, dict_char
