@@ -20,7 +20,6 @@ def write_data_to(_path_file, _content):
     with open(_path, 'w') as f:
         f.write(_content)
 
-
 def write_to_csv(chars, numbers, frequencies, path_file):
     """write in csv"""
     # print(chars, numbers, len(chars), frequencies)
@@ -30,7 +29,7 @@ def write_to_csv(chars, numbers, frequencies, path_file):
         'frequencies': frequencies
     })
     df.to_csv('../data/' + path_file)
-    print('result of analysis has been stored in: ' + path_file)
+    print('Done! result of analysis has been stored in: ' + path_file)
 
 def statistics_analysis(_dict_chars, _count):
     """input: dict and number of different elements,
