@@ -1,7 +1,7 @@
-""" step 2, get frequency analysis of pairs chars and write to result2.csv"""
 from utils import *
 
 class Crypt2Analysis(object):
+    """ step 2, get frequency analysis of pairs chars and write to csv"""
     def __init__(self, _from_path, _to_path_csv):
         self._from_path = _from_path
         self._to_path_csv = _to_path_csv

@@ -1,7 +1,7 @@
 from utils import *
 
 class Crypt3Analysis(object):
-    """step 3: analysis triple chars frequency and write to  result3.csv"""
+    """step 3: analysis triple chars frequency and write to csv"""
     def __init__(self, _from_path, _to_path_csv):
         self._from_path = _from_path
         self._to_path_csv = _to_path_csv
