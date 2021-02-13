@@ -1,45 +1,31 @@
-"""computer securtiy arbitary mapping"""
+""" step 2, get frequency analysis of different chars and write to result1.csv"""
 from utils import *
 
-MOSTALPHA = ['e', 't', 'a', 'o', 'i', 'n', 's', 'h', 'r', 'd', 'l',
-                  'c', 'u', 'm', 'w', 'f', 'g', 'y', 'p', 'b', 'v', 'k',
-                  'j', 'x', 'q', 'z']
 
-ANSPATH = '../data/results.csv'
+class Crypt1Analysis(object):
+    """step 1: analysis """
+    def __init__(self, _from_path, _to_path_csv):
+        self._from_path = _from_path
+        self._to_path_csv = _to_path_csv
+        self.exec()
+        
+    def number_statistics (self, _encrypted_data):
+        """count each character, return number of chars and frequency dict"""
+        dict_char = {}
+        count = 0
+        for i in _encrypted_data:
+            if i in dict_char:
+                dict_char[i] += 1
+            else:
+                dict_char[i] = 1
+            count += 1
 
-def number_statistics (_encrypted_data):
-    """count each character, return number of chars and frequency dict"""
-    dict_char = {}
-    count = 0
-    for i in _encrypted_data:
-        if i in dict_char:
-            dict_char[i] += 1
-        else:
-            dict_char[i] = 1
-        count += 1
+        return count, dict_char
 
-    return count, dict_char
+    def exec(self):
+        """read data from txt, do analysis and rank the chars, write the answer to csv"""
+        self.encrypted_data = read_file_from(self._from_path)
+        count, dict_chars = self.number_statistics(self.encrypted_data)
+        self.chars, numbers, frequencies = statistics_analysis(dict_chars, count)
+        write_to_csv(self.chars, numbers, frequencies, self._to_path_csv)
 
-def arbitary_mapping(_org_data, _enc_ranked_chars):
-    """substitution to enctypt data"""
-    Idx = [_ for _ in range(26)]
-    chars_idx_dict = dict(zip(_enc_ranked_chars, Idx))
-
-    decrypt_data = ""
-    for _ in _org_data:
-        _ = MOSTALPHA[chars_idx_dict[_]]
-        decrypt_data += _
-    write_data_to('../data/c2-decrypt-1.txt', decrypt_data)
-
-def main():
-    """read data from txt, do analysis and rank the chars, write the answer to csv"""
-    encrypted_data = read_file_from(DATAPATH)
-    count, dict_chars = number_statistics(encrypted_data)
-    chars, numbers, frequencies = statistics_analysis(dict_chars, count)
-    write_to_csv(chars, numbers, frequencies, ANSPATH)
-    ### arbitary_mapping
-    arbitary_mapping(encrypted_data, chars)
-
-if __name__ == '__main__':
-    main()
-    print("done")

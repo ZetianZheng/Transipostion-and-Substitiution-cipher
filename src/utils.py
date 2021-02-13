@@ -1,9 +1,6 @@
 """utils"""
 import pandas as pd
 
-DATAPATH = '../data/challenge-2-ct.txt'
-DATAPATH2 = '../data/c2-decrypt-1.txt' # the dectypted data from step 1
-
 def read_file_from(path):
     """"read file"""
     f = open(path)
@@ -17,13 +14,14 @@ def read_file_from(path):
     ret = ret.replace('\n', '')
     return ret
 
-def write_data_to(path, content):
+def write_data_to(_path_file, _content):
     """"write file after substituion"""
-    with open(path, 'w') as f:
-        f.write(content)
+    _path = '../data/' + _path_file
+    with open(_path, 'w') as f:
+        f.write(_content)
 
 
-def write_to_csv(chars, numbers, frequencies, path):
+def write_to_csv(chars, numbers, frequencies, path_file):
     """write in csv"""
     # print(chars, numbers, len(chars), frequencies)
     df = pd.DataFrame({
@@ -31,7 +29,8 @@ def write_to_csv(chars, numbers, frequencies, path):
         'numbers': numbers,
         'frequencies': frequencies
     })
-    df.to_csv(path)
+    df.to_csv('../data/' + path_file)
+    print('result of analysis has been stored in: ' + path_file)
 
 def statistics_analysis(_dict_chars, _count):
     """input: dict and number of different elements,
