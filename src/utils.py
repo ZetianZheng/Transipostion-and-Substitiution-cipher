@@ -41,3 +41,13 @@ def statistics_analysis(_dict_chars, _count):
     numbers =  list(sorted_chars.values())
     frequencies = list(map(lambda x: x/_count, numbers))
     return chars, numbers, frequencies
+
+def arbitary_mapping_sub(org_data, mapping_dict, to_path):
+    """ do arbitary mapping substitution by using mapping dict"""
+    decrypt_data = ''
+    for _ in org_data:
+        temp = mapping_dict.get(_)
+        decrypt_data += temp
+    write_data_to(to_path, decrypt_data)
+    print('substitution done! result store in: ' + to_path)
+        
