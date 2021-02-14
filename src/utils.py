@@ -19,6 +19,7 @@ def write_data_to(_path_file, _content):
     _path = '../data/' + _path_file
     with open(_path, 'w') as f:
         f.write(_content)
+    f.close()
 
 def write_to_csv(chars, numbers, frequencies, path_file):
     """write in csv"""
@@ -44,9 +45,12 @@ def statistics_analysis(_dict_chars, _count):
 def arbitary_mapping_sub(org_data, mapping_dict, to_path):
     """ do arbitary mapping substitution by using mapping dict"""
     decrypt_data = ''
-    for _ in org_data:
-        temp = mapping_dict.get(_)
-        decrypt_data += temp
+    for i in org_data:
+        if i in mapping_dict:
+            temp = mapping_dict.get(i)
+            decrypt_data += temp
+        else:
+            decrypt_data += i
     write_data_to(to_path, decrypt_data)
     print('substitution done! result store in: ' + to_path)
         
