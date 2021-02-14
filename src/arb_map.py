@@ -7,7 +7,7 @@ MOSTALPHA = ['e', 't', 'a', 'o', 'i', 'n', 's', 'h', 'r', 'd', 'l',
                   'c', 'u', 'm', 'w', 'f', 'g', 'y', 'p', 'b', 'v', 'k',
                   'j', 'x', 'q', 'z']
 
-class Main(object):
+class Arbmap(object):
     """functions"""
     def __init__(self, turn_name, from_path_file):
         # self.source_data = '../data/' + source_data
@@ -32,15 +32,17 @@ class Main(object):
 
 def execution(dict_change, name, source_file):
     """execute substitution result and anaylsis it"""
-    inst = Main(name, source_file) # Instantiate the Main class
+    inst = Arbmap(name, source_file) # Instantiate the Main class
     _subp = inst.exec_sub(dict_change) # execute substitution
     _subp_data = read_file_from(_subp)
     inst.exec_analysis(_subp_data) # execute analysis
 
 
 if __name__ == '__main__':
-    # c2 = Main('c2')
+    # c2 = Arbmap('c2')
     # c2.exec_analysis('challenge-2-ct.txt')
-    dict_all = {'µ':'t', '¬':'h', '©':'e', 'Ω':'o', '¡':'z', 'ç':'q', 'å':'a', '÷':'w', 'ß':'b','∂':'c', '†':'k', '≥':'u', '∆':'f', '√':'r', '˚':'g', '∫':'s', '®':'l', '≠':'y', 'π':'i', 'œ':'n', '≤':'v', '«':'x', 'ƒ':'d', '∑':'m', '≈':'p', 'ø':'j'}
+    dict_all = {'µ':'t', '¬':'h', '©':'e', 'Ω':'o', '¡':'z', 'ç':'q', 'å':'a', '÷':'w',
+                'ß':'b', '∂':'c', '†':'k', '≥':'u', '∆':'f', '√':'r', '˚':'g', '∫':'s',
+                '®':'l', '≠':'y', 'π':'i', 'œ':'n', '≤':'v', '«':'x', 'ƒ':'d', '∑':'m',
+                '≈':'p', 'ø':'j'}
     execution(dict_all, '12all', 'challenge-2-ct.txt')
-    
