@@ -20,7 +20,7 @@ class Arbmap(object):
         crypt = CryptAnalysis(encrypted_data)
         # analysis frequency of 1 char, 2 chars and 3 chars
         for i in range(1, 4):
-            crypt.exec(i, self.turn_name + '-' + str(i) + 'freq.csv')
+            crypt.exec(i, '../data/' + self.turn_name + '-' + str(i) + 'freq.csv')
             if i == 1:
                 self.chars_list = crypt.chars
 
