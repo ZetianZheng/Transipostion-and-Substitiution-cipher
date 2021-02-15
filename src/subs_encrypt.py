@@ -1,7 +1,8 @@
 from utils import *
 from cryptanalysis import CryptAnalysis
 
-class Substitution(object):
+class CaesarSubstitution(object):
+    """Caesar substitution"""
     def __init__(self, pt_data, key, to_path):
         self.pt_data = pt_data
         self.new_alphabet = []
@@ -9,16 +10,16 @@ class Substitution(object):
         self.to_path = to_path
 
     def sub_mapping(self, key):
+        """create a new mapping from alphabet and key"""
         new_alphabet = [''] * 26
         alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
                     'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
-        
+
         for i in range(0, 26):
             new_alphabet[i] = alphabet[(i + key) % 26]
 
         dict_sub_map = dict(zip(alphabet, new_alphabet))
         return dict_sub_map
-        
 
     def encryption(self):
         """execute encryption"""
@@ -38,6 +39,6 @@ class Substitution(object):
 if __name__ == '__main__':
     pt = read_file_from('../data_subs/challenge-2-pt.txt')
 
-    sub = Substitution(pt, 5, '../data_subs/c2-subs-ct.txt')
+    sub = CaesarSubstitution(pt, 5, '../data_subs/c2-subs-ct.txt')
     sub.execution('../data_subs/c2-subs-analysis.csv')
         
