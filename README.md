@@ -1,4 +1,4 @@
-# Transposition-and-Substitiution-cipher
+# Transposition-and-Substitution-cipher
 
 - cryptanalysis.py: Do analysis to cipher text: get number and frequency of each letter and compare it to English letter frequency
 - arb_map.py: Do analysis and experiment to cipher text, get arbitrary mapping step by step.
